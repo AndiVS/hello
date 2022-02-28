@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: prod-api-service
+  labels:
+    app: prod-api-service
+    env: prod
+spec:
+  selector:
+    matchLabels:
+      app: prod-api-service
+      env: prod
+  template:
+    metadata:
+      labels:
+        app: prod-api-service
+        env: prod
+    spec:
+      containers:
+        - name: prod-api-service
+          image: "api-service:latest"
+          imagePullPolicy: IfNotPresent

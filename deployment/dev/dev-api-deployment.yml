@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dev-api-service
+  labels:
+    app: dev-api-service
+    env: dev
+spec:
+  selector:
+    matchLabels:
+      app: dev-api-service
+      env: dev
+  template:
+    metadata:
+      labels:
+        app: dev-api-service
+        env: dev
+    spec:
+      containers:
+        - name: dev-api-service
+          image: "api-service:latest"
+          imagePullPolicy: IfNotPresent

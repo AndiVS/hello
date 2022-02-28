@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stage-api-service
+  labels:
+    app: stage-api-service
+    env: stage
+spec:
+  selector:
+    matchLabels:
+      app: stage-api-service
+      env: stage
+  template:
+    metadata:
+      labels:
+        app: stage-api-service
+        env: stage
+    spec:
+      containers:
+        - name: stage-api-service
+          image: "api-service:latest"
+          imagePullPolicy: IfNotPresent
